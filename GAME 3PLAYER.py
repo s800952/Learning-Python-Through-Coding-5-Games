@@ -7,9 +7,9 @@ wn.setup(width=800, height=600)
 wn.tracer(0)
 
 #Score
-score_a = 5
-score_b = 5
-score_c = 5
+score_a = 0
+score_b = 0
+score_c = 0
 
 #Paddle A
 paddle_a = turtle.Turtle()
@@ -55,7 +55,7 @@ pen.color("white")
 pen.penup()
 pen.hideturtle()
 pen.goto(0,260)
-pen.write("Player A: 5  Player B: 5  Player C: 5", align="center", font=("Courier", 24, "normal"))
+pen.write("Player A: 0  Player B: 0  Player C: 0", align="center", font=("Courier", 24, "normal"))
 
 #Function
 def paddle_a_up():
@@ -123,7 +123,8 @@ while True:
     if ball.ycor() < -290:
         ball.goto(0,0)
         ball.dy *= -1
-        score_c -= 1
+        score_a += 1
+        score_b += 1
         pen.clear()
         pen.write("Player A: {}  Player B: {}  Player C: {}".format(score_a, score_b, score_c), align="center", font=("Courier", 24, "normal"))
 
@@ -131,14 +132,16 @@ while True:
     if ball.xcor() > 390:
         ball.goto(0,0)
         ball.dx *= -1
-        score_a -= 1
+        score_a += 1
+        score_c += 1
         pen.clear()
         pen.write("Player A: {}  Player B: {}  Player C: {}".format(score_a, score_b, score_c), align="center", font=("Courier", 24, "normal"))
 
     if ball.xcor() < -390:
         ball.goto(0,0)
         ball.dx *= -1
-        score_b -= 1
+        score_b += 1
+        score_c += 1
         pen.clear()
         pen.write("Player A: {}  Player B: {}  Player C: {}".format(score_a, score_b, score_c), align="center", font=("Courier", 24, "normal"))
 
